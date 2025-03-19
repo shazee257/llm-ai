@@ -144,12 +144,12 @@ export function SettingsForm() {
     // Optimistically update the local state
     const newSettings: Settings | null = settings
       ? {
-          ...settings,
-          ...updateRequests.reduce((acc, { fieldName, newValue }) => {
-            acc[fieldName] = newValue ?? settings[fieldName];
-            return acc;
-          }, {} as Partial<Settings>),
-        }
+        ...settings,
+        ...updateRequests.reduce((acc, { fieldName, newValue }) => {
+          acc[fieldName] = newValue ?? settings[fieldName];
+          return acc;
+        }, {} as Partial<Settings>),
+      }
       : null;
     setSettings(newSettings);
 
@@ -244,7 +244,7 @@ export function SettingsForm() {
       />
       <Checkbox
         label="Anonymous Users"
-        sublabel="If set, users will not be required to sign in to use Onyx."
+        sublabel="If set, users will not be required to sign in to use IAI."
         checked={settings.anonymous_user_enabled}
         onChange={(e) =>
           handleToggleSettingsField("anonymous_user_enabled", e.target.checked)
@@ -272,7 +272,7 @@ export function SettingsForm() {
             <h2 className="text-xl font-bold">Enable Anonymous Users</h2>
             <p>
               Are you sure you want to enable anonymous users? This will allow
-              anyone to use Onyx without signing in.
+              anyone to use IAI without signing in.
             </p>
             <div className="flex justify-end gap-2">
               <Button
@@ -291,7 +291,7 @@ export function SettingsForm() {
           <Title className="mt-8 mb-4">Chat Settings</Title>
           <IntegerInput
             label="Chat Retention"
-            sublabel="Enter the maximum number of days you would like Onyx to retain chat messages. Leaving this field empty will cause Onyx to never delete chat messages."
+            sublabel="Enter the maximum number of days you would like IAI to retain chat messages. Leaving this field empty will cause IAI to never delete chat messages."
             value={chatRetention === "" ? null : Number(chatRetention)}
             onChange={(e) => {
               const numValue = parseInt(e.target.value, 10);

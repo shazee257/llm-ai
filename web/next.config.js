@@ -13,11 +13,10 @@ const cspHeader = `
     object-src 'none';
     base-uri 'self';
     form-action 'self';
-    ${
-      process.env.NEXT_PUBLIC_CLOUD_ENABLED === "true"
-        ? "upgrade-insecure-requests;"
-        : ""
-    }
+    ${process.env.NEXT_PUBLIC_CLOUD_ENABLED === "true"
+    ? "upgrade-insecure-requests;"
+    : ""
+  }
 `;
 
 /** @type {import('next').NextConfig} */
@@ -72,21 +71,18 @@ const nextConfig = {
     return [
       {
         source: "/api/docs/:path*", // catch /api/docs and /api/docs/...
-        destination: `${
-          process.env.INTERNAL_URL || "http://localhost:8080"
-        }/docs/:path*`,
+        destination: `${process.env.INTERNAL_URL || "http://localhost:8080"
+          }/docs/:path*`,
       },
       {
         source: "/api/docs", // if you also need the exact /api/docs
-        destination: `${
-          process.env.INTERNAL_URL || "http://localhost:8080"
-        }/docs`,
+        destination: `${process.env.INTERNAL_URL || "http://localhost:8080"
+          }/docs`,
       },
       {
         source: "/openapi.json",
-        destination: `${
-          process.env.INTERNAL_URL || "http://localhost:8080"
-        }/openapi.json`,
+        destination: `${process.env.INTERNAL_URL || "http://localhost:8080"
+          }/openapi.json`,
       },
     ];
   },
@@ -103,7 +99,7 @@ const sentryEnabled = Boolean(
 
 // Sentry webpack plugin options
 const sentryWebpackPluginOptions = {
-  org: process.env.SENTRY_ORG || "onyx",
+  org: process.env.SENTRY_ORG || "IAI",
   project: process.env.SENTRY_PROJECT || "data-plane-web",
   authToken: process.env.SENTRY_AUTH_TOKEN,
   silent: !sentryEnabled, // Silence output when Sentry is disabled

@@ -161,7 +161,7 @@ function ActionForm({
       />
       <div className="mt-4 text-sm bg-blue-50 p-4 rounded-md border border-blue-200">
         <Link
-          href="https://docs.onyx.app/tools/custom"
+          href="#"
           className="text-link hover:underline flex items-center"
           target="_blank"
           rel="noopener noreferrer"
@@ -310,13 +310,13 @@ function ActionForm({
                       {values.customHeaders.some(
                         (header) => header.key.toLowerCase() === "authorization"
                       ) && (
-                        <TooltipContent side="top" align="center">
-                          <p className="bg-background-900 max-w-[200px] mb-1 text-sm rounded-lg p-1.5 text-white">
-                            Cannot enable OAuth passthrough when an
-                            Authorization header is already set
-                          </p>
-                        </TooltipContent>
-                      )}
+                          <TooltipContent side="top" align="center">
+                            <p className="bg-background-900 max-w-[200px] mb-1 text-sm rounded-lg p-1.5 text-white">
+                              Cannot enable OAuth passthrough when an
+                              Authorization header is already set
+                            </p>
+                          </TooltipContent>
+                        )}
                     </Tooltip>
                   </TooltipProvider>
                   <div className="flex flex-col">

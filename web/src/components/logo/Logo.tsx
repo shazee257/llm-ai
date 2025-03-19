@@ -34,10 +34,10 @@ export function Logo({
   ) {
     return (
       <div style={{ height, width }} className={className}>
-        <OnyxIcon
+        {/* <OnyxIcon
           size={height}
           className={`${className} dark:text-[#fff] text-[#000]`}
-        />
+        /> */}
       </div>
     );
   }
@@ -48,11 +48,11 @@ export function Logo({
       className={`flex-none relative ${className}`}
     >
       {/* TODO: figure out how to use Next Image here */}
-      <img
+      {/* <img
         src="/api/enterprise-settings/logo"
         alt="Logo"
         style={{ objectFit: "contain", height, width }}
-      />
+      /> */}
     </div>
   );
 }
@@ -63,6 +63,7 @@ export function LogoType({
   size?: "small" | "default" | "large";
 }) {
   return (
+
     <OnyxLogoTypeIcon
       size={115}
       className={`items-center w-full dark:text-[#fff]`}
